@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffbfb;
+  --foreground: #2c3831;
+  --captions: #545454;
+  --divider: #cbcbcb;
+  --accent-image: #ffffff;
+  --accent-bg: #777474;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-captions: var(--captions);
+  --color-divider: var(--divider);
+  --color-accent-image: var(--accent-image);
+  --color-accent-bg: var(--accent-bg);
+  --font-source-code: var(--font-source-code);
+  --breakpoint-tablet: 800px;
+  --breakpoint-desktop: 1200px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+main,
+section,
+footer {
+  position: relative;
+  flex-shrink: 0;
+  max-width: 1500px;
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+div[aria-hidden="true"] {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 0.5px 0 0;
+  border-color: var(--divider);
+}
+
+@media (min-width: 1280px) {
+  header,
+  main {
+    max-width: calc(var(--spacing) * 375);
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }
