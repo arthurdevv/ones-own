@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import Image from "next/image";
 
 import { layout, typography } from "@/lib/styles";
@@ -5,12 +6,17 @@ import { cn } from "@/lib/utils";
 
 export default function Footer() {
   return (
-    <footer>
+    <motion.footer
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+      viewport={{ once: false }}
+    >
       <div aria-hidden="true" />
       <div
         className={cn(
           layout.container,
-          "desktop:gap-20 tablet:flex-row tablet:justify-between items-start gap-10 py-20",
+          "desktop:px-2.5 desktop:gap-20 tablet:flex-row tablet:justify-between items-start gap-10 py-20",
         )}
       >
         <div className="desktop:w-30 h-7.5 w-25">
@@ -47,6 +53,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

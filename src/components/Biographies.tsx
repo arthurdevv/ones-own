@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+
 import { layout, typography } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 
@@ -11,7 +13,12 @@ const names = {
 
 export default function Biographies() {
   return (
-    <section>
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+      viewport={{ once: false }}
+    >
       <div aria-hidden="true" />
       <div className={cn(layout.container, "gap-10 pt-7.5 pb-20")}>
         <header className={layout.header}>
@@ -27,6 +34,6 @@ export default function Biographies() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

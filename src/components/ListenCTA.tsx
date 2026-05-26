@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { layout, typography } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 
@@ -13,7 +14,7 @@ export default function ListenCTA() {
           </h2>
         </header>
         <div className={cn(layout.wrapper, "items-center gap-1 pt-7.5")}>
-          <div className="desktop:max-w-full tablet:max-w-162.5 min-h-57.5">
+          <div className="desktop:max-w-3xl tablet:max-w-162.5 min-h-57.5">
             <Image
               src="/images/tape.avif"
               alt="Recording tape with image of people on a beach on it"

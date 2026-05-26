@@ -12,3 +12,7 @@ export const layout = {
   icon: `flex h-3.75 w-3.75 pt-1 items-center justify-center fill-foreground`,
   button: `tablet:h-42.5 border-divider flex h-12.5 w-full items-center justify-center border px-2.5 tracking-[-0.36px]`,
 };
+
+export const springs = {
+  smooth: { stiffness: 25.6, damping: 4.52, mass: 0.2, duration: 0.531 },
+};

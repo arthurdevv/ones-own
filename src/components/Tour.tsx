@@ -1,9 +1,9 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import Image from "next/image";
-import { useRef } from "react";
+
 import { ArrowUpRightIcon } from "@/components/icons";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
-import { layout, typography } from "@/lib/styles";
+import { layout, springs, typography } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 
 const tourDates = {
@@ -87,28 +87,35 @@ function TourDates({ title, content }: TourDatesProps) {
 }
 
 export default function Tour() {
-  const { breakpoint } = useWindowWidth();
+  const { width, breakpoint } = useWindowWidth();
+  const { scrollYProgress } = useScroll();
 
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 180]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.1, 1],
+    [width >= 1600 ? 1 : 0, 1, 0.5],
+  );
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  });
-
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  const smoothRotate = useSpring(rotate, springs.smooth);
+  const smoothOpacity = useSpring(opacity, springs.smooth);
 
   return (
-    <section>
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: false }}
+    >
       <div aria-hidden="true" />
       <div
         className={cn(
           layout.container,
-          "desktop:pt-12.5 desktop:flex-row desktop:items-start desktop:justify-between tablet:pt-0",
+          "desktop:pb-5 desktop:pt-12.5 desktop:flex-row desktop:items-start desktop:justify-between tablet:pt-0",
         )}
       >
         <motion.div
-          style={{ rotate }}
+          style={{ rotate: smoothRotate, opacity: smoothOpacity }}
           className="desktop:sticky desktop:top-0 desktop:flex desktop:items-center desktop:justify-center desktop:w-140 desktop:h-125 tablet:h-165.5 tablet:w-150 h-96.25 w-78.75 pt-7.5 pb-10"
         >
           <Image
@@ -119,14 +126,14 @@ export default function Tour() {
             className="desktop:w-113.75 desktop:h-113.75 h-full w-full object-cover object-center"
           />
         </motion.div>
-        <div className={cn(layout.wrapper, "desktop:gap-15 desktop:w-140")}>
+        <div className={cn(layout.wrapper, "desktop:gap-15 desktop:w-129.5")}>
           <div className={cn(layout.wrapper, "gap-12.5")}>
             {Object.entries(tourDates).map(([year, dates]) => (
               <TourDates key={year} title={year} content={dates} />
             ))}
           </div>
           <div className={cn(layout.wrapper, "items-center")}>
-            <div className="desktop:h-140 desktop:w-140 tablet:w-full tablet:h-209 h-92.5 w-92.5">
+            <div className="desktop:h-129.5 desktop:w-129.5 tablet:w-full tablet:h-209 h-92.5 w-92.5">
               <Image
                 src="/images/people.avif"
                 alt="People laying in park"
@@ -135,7 +142,7 @@ export default function Tour() {
                 className="h-full w-full object-cover object-center"
               />
             </div>
-            <div className="w-full pt-5 pb-20">
+            <div className="desktop:pb-15 w-full pt-5 pb-20">
               <h2 className={cn(typography.heading, "max-w-70.5")}>
                 Contact hello@figma.com to book US or global tour dates.
               </h2>
@@ -143,6 +150,6 @@ export default function Tour() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

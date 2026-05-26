@@ -19,6 +19,7 @@
   --font-source-code: var(--font-source-code);
   --breakpoint-tablet: 800px;
   --breakpoint-desktop: 1200px;
+  --breakpoint-ultra: 1600px;
 }
 
 html {

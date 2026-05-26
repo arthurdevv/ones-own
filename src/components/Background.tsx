@@ -12,8 +12,8 @@ export default function Background() {
           className="object-cover object-center opacity-70"
         />
       </div>
-      <div className="pointer-events-none absolute top-56.25 h-[calc(100%-13.75rem)] w-full py-2.5">
-        <div className="bg-background relative h-full w-full rounded-tl-[100px] rounded-tr-[20px] blur-2xl" />
+      <div className="ultra:flex ultra:justify-center pointer-events-none absolute top-56.25 h-[calc(100%-13.75rem)] w-full py-2.5">
+        <div className="ultra:w-400 bg-background relative h-full w-full rounded-tl-[100px] rounded-tr-[20px] blur-2xl" />
       </div>
     </>
   );

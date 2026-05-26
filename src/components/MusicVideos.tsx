@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import Image from "next/image";
 
 import { layout, typography } from "@/lib/styles";
@@ -34,7 +35,12 @@ const videos = [
 
 export default function MusicVideos() {
   return (
-    <section>
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+      viewport={{ once: false }}
+    >
       <div className={cn(layout.container, "gap-10 pt-5 pb-7.5")}>
         <header
           className={cn(
@@ -76,6 +82,6 @@ export default function MusicVideos() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
