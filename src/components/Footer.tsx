@@ -10,10 +10,10 @@ export default function Footer() {
       <div
         className={cn(
           layout.container,
-          "tablet:flex-row tablet:justify-between items-start gap-10 py-20",
+          "desktop:gap-20 tablet:flex-row tablet:justify-between items-start gap-10 py-20",
         )}
       >
-        <div className="h-7.5 w-25">
+        <div className="desktop:w-30 h-7.5 w-25">
           <Image
             src="/icons/wwr.svg"
             alt="Wild World Records Logo"
@@ -26,7 +26,7 @@ export default function Footer() {
           className={cn(
             layout.wrapper,
             typography.caption,
-            "tablet:w-fit gap-11.25",
+            "desktop:w-full desktop:flex-row desktop:justify-between tablet:w-fit gap-11.25",
           )}
         >
           <div>

@@ -76,7 +76,7 @@ function TourDates({ title, content }: TourDatesProps) {
             <div className="ml-auto inline-flex gap-1">
               Tickets
               <div className={layout.icon}>
-                <ArrowUpRightIcon />
+                <ArrowUpRightIcon width={6} height={6} />
               </div>
             </div>
           </a>
@@ -101,38 +101,45 @@ export default function Tour() {
   return (
     <section>
       <div aria-hidden="true" />
-      <div className={cn(layout.container, "tablet:pt-0")}>
+      <div
+        className={cn(
+          layout.container,
+          "desktop:pt-12.5 desktop:flex-row desktop:items-start desktop:justify-between tablet:pt-0",
+        )}
+      >
         <motion.div
           style={{ rotate }}
-          className="tablet:h-165.5 tablet:w-150 h-96.25 w-78.75 pt-7.5 pb-10"
+          className="desktop:sticky desktop:top-0 desktop:flex desktop:items-center desktop:justify-center desktop:w-140 desktop:h-125 tablet:h-165.5 tablet:w-150 h-96.25 w-78.75 pt-7.5 pb-10"
         >
           <Image
             src={`/images/disc-${breakpoint}.avif`}
             alt="Disc"
             width={315}
             height={315}
-            className="h-full w-full object-cover object-center"
+            className="desktop:w-113.75 desktop:h-113.75 h-full w-full object-cover object-center"
           />
         </motion.div>
-        <div className={cn(layout.wrapper, "gap-12.5")}>
-          {Object.entries(tourDates).map(([year, dates]) => (
-            <TourDates key={year} title={year} content={dates} />
-          ))}
-        </div>
-        <div className={cn(layout.wrapper, "items-center")}>
-          <div className="tablet:w-full tablet:h-209 h-92.5 w-92.5">
-            <Image
-              src="/images/people.avif"
-              alt="People laying in park"
-              width={315}
-              height={315}
-              className="h-full w-full object-cover object-center"
-            />
+        <div className={cn(layout.wrapper, "desktop:gap-15 desktop:w-140")}>
+          <div className={cn(layout.wrapper, "gap-12.5")}>
+            {Object.entries(tourDates).map(([year, dates]) => (
+              <TourDates key={year} title={year} content={dates} />
+            ))}
           </div>
-          <div className="w-full pt-5 pb-20">
-            <h2 className={cn(typography.heading, "max-w-70.5")}>
-              Contact hello@figma.com to book US or global tour dates.
-            </h2>
+          <div className={cn(layout.wrapper, "items-center")}>
+            <div className="desktop:h-140 desktop:w-140 tablet:w-full tablet:h-209 h-92.5 w-92.5">
+              <Image
+                src="/images/people.avif"
+                alt="People laying in park"
+                width={315}
+                height={315}
+                className="h-full w-full object-cover object-center"
+              />
+            </div>
+            <div className="w-full pt-5 pb-20">
+              <h2 className={cn(typography.heading, "max-w-70.5")}>
+                Contact hello@figma.com to book US or global tour dates.
+              </h2>
+            </div>
           </div>
         </div>
       </div>

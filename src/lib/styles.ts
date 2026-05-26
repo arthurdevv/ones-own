@@ -7,7 +7,7 @@ export const typography = {
 
 export const layout = {
   container: `flex flex-col items-center w-full gap-12.5 pt-12.5 whitespace-pre-wrap`,
-  wrapper: `flex flex-col flex-wrap w-full`,
+  wrapper: `flex flex-col w-full`,
   header: `inline-flex justify-start w-full`,
   icon: `flex h-3.75 w-3.75 pt-1 items-center justify-center fill-foreground`,
   button: `tablet:h-42.5 border-divider flex h-12.5 w-full items-center justify-center border px-2.5 tracking-[-0.36px]`,

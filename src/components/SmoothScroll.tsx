@@ -22,7 +22,7 @@ export default function SmoothScroll({
   }, []);
 
   return (
-    <div className="tablet:px-23.5 bg-background relative flex w-full flex-col items-center overflow-clip px-7.5">
+    <div className="desktop:px-25 tablet:px-23.5 bg-background relative flex w-full flex-col items-center overflow-clip px-7.5">
       {children}
     </div>
   );

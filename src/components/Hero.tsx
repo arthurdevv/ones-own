@@ -16,7 +16,7 @@ export default function Hero() {
             alt="One's Own Logo"
             width={315}
             height={186}
-            className="h-full w-full object-cover object-center"
+            className="desktop:aspect-1059/150 h-full w-full object-cover object-center"
           />
           <div className={cn(layout.wrapper, "gap-5")}>
             <h2 className={cn(typography.heading)}>Listen on:</h2>
@@ -25,7 +25,7 @@ export default function Hero() {
         </div>
         <div className={cn(layout.wrapper, "gap-5")}>
           <h2 className={cn(typography.heading)}>Info</h2>
-          <div className={cn(typography.body)}>
+          <div className={cn(typography.body, "desktop:max-w-150")}>
             <p>
               Crafting sonic landscapes where raw emotion meets melodic
               storytelling.

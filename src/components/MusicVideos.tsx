@@ -36,17 +36,27 @@ export default function MusicVideos() {
   return (
     <section>
       <div className={cn(layout.container, "gap-10 pt-5 pb-7.5")}>
-        <header className={cn(layout.header, "tablet:justify-center")}>
+        <header
+          className={cn(
+            layout.header,
+            "desktop:justify-start tablet:justify-center",
+          )}
+        >
           <h2 className={typography.heading}>Music Videos:</h2>
         </header>
-        <div className={cn(layout.wrapper, "tablet:flex-row gap-5 px-12.25")}>
+        <div
+          className={cn(
+            layout.wrapper,
+            "desktop:px-4 tablet:flex-row flex-wrap gap-5 px-12.25",
+          )}
+        >
           {videos.map(({ title, src, alt }) => (
             <a
               key={title}
               href="/"
               className={cn(
                 layout.wrapper,
-                "tablet:flex-[1_0_0] w-fit items-center gap-4 py-7.5 text-center",
+                "desktop:min-w-60 desktop:h-85 tablet:flex-[1_0_0] items-center gap-4 py-7.5 text-center",
               )}
             >
               <div className="h-57.5 w-57.5 bg-black">
