@@ -126,7 +126,12 @@ export default function Tour() {
             className="desktop:w-113.75 desktop:h-113.75 h-full w-full object-cover object-center"
           />
         </motion.div>
-        <div className={cn(layout.wrapper, "desktop:gap-15 desktop:w-129.5")}>
+        <div
+          className={cn(
+            layout.wrapper,
+            "desktop:justify-center desktop:gap-15 desktop:w-129.5",
+          )}
+        >
           <div className={cn(layout.wrapper, "desktop:pb-0 gap-12.5 pb-15")}>
             {Object.entries(tourDates).map(([year, dates]) => (
               <TourDates key={year} title={year} content={dates} />
