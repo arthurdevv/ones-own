@@ -111,7 +111,7 @@ export default function Tour() {
       <div
         className={cn(
           layout.container,
-          "desktop:pb-5 desktop:pt-12.5 desktop:flex-row desktop:items-start desktop:justify-between tablet:pt-0",
+          "desktop:pb-5 desktop:pt-12.5 desktop:px-6.25 desktop:gap-22.5 desktop:flex-row desktop:items-start tablet:pt-0",
         )}
       >
         <motion.div
@@ -129,7 +129,7 @@ export default function Tour() {
         <div
           className={cn(
             layout.wrapper,
-            "desktop:justify-center desktop:gap-15 desktop:w-129.5",
+            "desktop:gap-12.5 desktop:flex-[1_0_0] desktop:w-129.5",
           )}
         >
           <div className={cn(layout.wrapper, "desktop:pb-0 gap-12.5 pb-15")}>
@@ -138,7 +138,7 @@ export default function Tour() {
             ))}
           </div>
           <div className={cn(layout.wrapper, "items-center")}>
-            <div className="desktop:h-129.5 desktop:w-129.5 tablet:w-full tablet:h-209 h-92.5 w-92.5">
+            <div className="desktop:h-156.25 tablet:w-full tablet:h-209 h-92.5 w-92.5">
               <Image
                 src="/images/people.avif"
                 alt="People laying in park"
